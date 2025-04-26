@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hodinový IT manžel - Profesionální IT služby na míru">
+    <title>Hodinový IT manžel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        header {
+            background-color: #0078d7;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            padding: 2rem 1rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .service {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.4s, box-shadow 0.4s, background-color 0.3s, opacity 0.6s ease, transform 0.6s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .highlighted {
+            border: 2px solid #0078d7;
+            background-color: #e6f0fa;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background-color: #0078d7;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .contact-button:hover {
+            background-color: #005fa3;
+        }
+
+        #scrollToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #0078d7;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #005fa3;
+        }
+
+        .service h3::before {
+            content: attr(data-icon) " ";
+            font-size: 1.5rem;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover h3::before {
+            transform: rotate(10deg) scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hodinový IT manžel</h1>
+    <p>Váš osobní specialista na IT služby</p>
+</header>
+
+<section id="services">
+    <h2>Moje služby</h2>
+    <div class="service-list">
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="🖥️">Instalace / Přeinstalace Windows</h3>
+            <p>Profesionální instalace a konfigurace systému Windows.</p>
+        </div>
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="🌐">Vytváření webů pro váš business</h3>
+            <p>Moderní a responzivní webové stránky pro vaše podnikání.</p>
+        </div>
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="🧹">Čištění PC</h3>
+            <p>Kompletní softwarové a hardwarové vyčištění vašeho počítače.</p>
+        </div>
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="📦">Instalace programů</h3>
+            <p>Rychlá a bezpečná instalace všech potřebných programů.</p>
+        </div>
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="📄">Základy práce v MS Office</h3>
+            <p>Školení a pomoc s Wordem, Excelem a PowerPointem.</p>
+        </div>
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="🚀">SEO webu</h3>
+            <p>Optimalizace vašich stránek pro lepší vyhledatelnost.</p>
+        </div>
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="🛠️">Výběr a složení PC</h3>
+            <p>Poradenství při výběru komponent a následné sestavení PC na míru.</p>
+        </div>
+        <div class="service" onclick="highlightService(this)">
+            <h3 data-icon="🤖">Práce s umělou inteligencí</h3>
+            <p>Vysvětlení, jak efektivně využívat AI ve vašem životě nebo podnikání.</p>
+        </div>
+    </div>
+</section>
+
+<section id="experience">
+    <h2>Moje zkušenosti</h2>
+    <ul>
+        <li>Vytváření webových stránek pro společnost <strong>SMAR s.r.o.</strong></li>
+        <li>Překlady technické dokumentace z angličtiny do češtiny a naopak</li>
+        <li>Vytváření virtuálních prohlídek pomocí technologie <strong>Matterport</strong></li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Kontaktujte mě</h2>
+    <p>Máte zájem o některou službu? Napište mi!</p>
+    <a href="mailto:vasemail@domena.cz" class="contact-button">Napište mi</a>
+</section>
+
+<button id="scrollToTopBtn" onclick="scrollToTop()">&#8679;</button>
+
+<script>
+    function highlightService(element) {
+        document.querySelectorAll('.service').forEach(service => {
+            service.classList.remove('highlighted');
+        });
+        element.classList.add('highlighted');
+    }
+
+    function revealServices() {
+        const services = document.querySelectorAll('.service');
+        const windowHeight = window.innerHeight;
+
+        services.forEach(service => {
+            const position = service.getBoundingClientRect().top;
+            if (position < windowHeight - 50) {
+                service.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealServices);
+    window.addEventListener('load', revealServices);
+
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
